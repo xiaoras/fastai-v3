@@ -60,8 +60,18 @@ async def analyze(request):
     img_data = await request.form()
     img_bytes = await (img_data['file'].read())
     img = open_image(BytesIO(img_bytes))
-    prediction = learn.predict(img)[0]
-    return JSONResponse({'result': str(prediction)})
+    
+    pred_class, pred_idx, outputs = learn.predict(img)
+    
+    categories = learn.data.classes
+    probabilities = [float(outputs[i]) for i in range(len(categories))]
+    fig, ax = plt.subplots()
+    ax.barh(categories, probabilities)
+    ax.invert_yaxis()
+    ax.set_xlabel('probability')
+    fig.savefig('plot.png')
+    
+    return JSONResponse({'result' : str(pred_class), 'plot' : 'plot.png'})
 
 
 if __name__ == '__main__':
