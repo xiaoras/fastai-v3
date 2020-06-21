@@ -9,7 +9,7 @@ from starlette.middleware.cors import CORSMiddleware
 from starlette.responses import HTMLResponse, JSONResponse
 from starlette.staticfiles import StaticFiles
 
-export_file_url = 'https://drive.google.com/uc?export=download&id=1v9ASw8CwB9wvi8nzlzHQwsPIiYqjJZKY'
+export_file_url = 'https://www.googleapis.com/drive/v3/files/1v9ASw8CwB9wvi8nzlzHQwsPIiYqjJZKY?alt=media&key=AIzaSyAbgeAxDdaQJC-eF_RlEfrACr4WsW8VuHg'
 export_file_name = 'export.pkl'
 
 classes = ['batman', 'captain america', 'deadpool', 'hulk', 'iron man', 'spiderman', 'superman', 'wolverine', 'wonder woman']
