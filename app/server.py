@@ -3,6 +3,8 @@ import asyncio
 import uvicorn
 from fastai import *
 from fastai.vision import *
+import matplotlib.pyplot as plt
+import base64
 from io import BytesIO
 from starlette.applications import Starlette
 from starlette.middleware.cors import CORSMiddleware
@@ -69,9 +71,11 @@ async def analyze(request):
     ax.barh(categories, probabilities)
     ax.invert_yaxis()
     ax.set_xlabel('probability')
-    fig.savefig('plot.png')
+    tmpfile = BytesIO()
+    fig.savefig(tmpfile, format='png')
+    encoded = base64.b64encode(tmpfile.getvalue()).decode('utf-8')
     
-    return JSONResponse({'result' : str(pred_class), 'plot' : 'plot.png'})
+    return JSONResponse({'result' : str(pred_class), 'plot' : encoded})
 
 
 if __name__ == '__main__':
