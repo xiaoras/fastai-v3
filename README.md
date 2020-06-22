@@ -1,4 +1,4 @@
-# Superhero image classifier for deploying on [Render](https://render.com), based on [fast.ai](https://www.fast.ai)
+# Superhero image classifier for deployment on [Render](https://render.com)
 
 Superhero image classifier, based on ResNet34 architecture. Currently supports Batman, Captain America, Deadpool, Hulk, Iron Man, Spiderman, Superman, Wolverine and Wonder Woman. Accuracy ~90%.
 
