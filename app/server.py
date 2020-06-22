@@ -74,9 +74,10 @@ async def analyze(request):
     tmpfile = BytesIO()
     fig.savefig(tmpfile, format='png')
     encoded = base64.b64encode(tmpfile.getvalue()).decode("utf-8")
-#     encoded = 'ciao'
+#     encoded = base64.b64encode(tmpfile.getvalue()).decode("utf-8")
+    image = '<img src=\'data:image/png;base64,{}\'>.format(encoded)'
     
-    return JSONResponse({'result' : str(pred_class), 'plot' : encoded})
+    return JSONResponse({'result' : str(pred_class), 'plot' : image})
 
 
 if __name__ == '__main__':
