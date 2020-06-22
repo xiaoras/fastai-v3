@@ -30,7 +30,7 @@ function analyze() {
     if (this.readyState === 4) {
       var response = JSON.parse(e.target.responseText);
       el("result-label").innerHTML = `This is most likely ${response["result"]}`;
-      el("plot-label").innerHTML = `Details: ${response["plot"]}`;
+      el("plot-label").innerHTML = `${response["plot"]}`;
     }
     el("analyze-button").innerHTML = "Analyze";
   };
