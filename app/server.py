@@ -68,7 +68,7 @@ async def analyze(request):
     categories = learn.data.classes
     probabilities = [float(outputs[i]) for i in range(len(categories))]
     fig, ax = plt.subplots(figsize=(10,5))
-    ax.barh(categories, probabilities)
+    ax.barh(categories, probabilities, color='#7052CB', alpha=0.5)
     ax.invert_yaxis()
     ax.set_xlabel('probability')
     tmpfile = BytesIO()
