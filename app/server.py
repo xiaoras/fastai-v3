@@ -4,7 +4,7 @@ import uvicorn
 from fastai import *
 from fastai.vision import *
 import matplotlib.pyplot as plt
-import base64
+# import base64
 from io import BytesIO
 from starlette.applications import Starlette
 from starlette.middleware.cors import CORSMiddleware
@@ -73,7 +73,8 @@ async def analyze(request):
     ax.set_xlabel('probability')
     tmpfile = BytesIO()
     fig.savefig(tmpfile, format='png')
-    encoded = base64.b64encode(tmpfile.getvalue()).decode("utf-8")
+#     encoded = base64.b64encode(tmpfile.getvalue()).decode("utf-8")
+    encoded = 'ciao'
     
     return JSONResponse({'result' : str(pred_class), 'plot' : encoded})
 
