@@ -62,10 +62,8 @@ async def analyze(request):
     img_data = await request.form()
     img_bytes = await (img_data['file'].read())
     img = open_image(BytesIO(img_bytes))
-    img_new = img.resize((224, 224))
     
-#     pred_class, pred_idx, outputs = learn.predict(img)
-    pred_class, pred_idx, outputs = learn.predict(img_new)
+    pred_class, pred_idx, outputs = learn.predict(img)
     
     categories = learn.data.classes
     probabilities = [float(outputs[i]) for i in range(len(categories))]
