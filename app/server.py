@@ -73,7 +73,7 @@ async def analyze(request):
     ax.set_xlabel('probability')
     tmpfile = BytesIO()
     fig.savefig(tmpfile, format='png')
-    encoded = base64.b64encode(tmpfile.getvalue()).decode('utf-8')
+    encoded = base64.b64encode(tmpfile.getvalue())
     
     return JSONResponse({'result' : str(pred_class), 'plot' : encoded})
 
