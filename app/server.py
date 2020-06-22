@@ -67,14 +67,13 @@ async def analyze(request):
     
     categories = learn.data.classes
     probabilities = [float(outputs[i]) for i in range(len(categories))]
-    fig, ax = plt.subplots()
+    fig, ax = plt.subplots(figsize=(10,5))
     ax.barh(categories, probabilities)
     ax.invert_yaxis()
     ax.set_xlabel('probability')
     tmpfile = BytesIO()
     fig.savefig(tmpfile, format='png')
     encoded = base64.b64encode(tmpfile.getvalue()).decode("utf-8")
-#     encoded = base64.b64encode(tmpfile.getvalue()).decode("utf-8")
     image = '<img src=\'data:image/png;base64,{}\'>'.format(encoded)
     
     return JSONResponse({'result' : str(pred_class), 'plot' : image})
