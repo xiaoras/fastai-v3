@@ -4,7 +4,7 @@ import uvicorn
 from fastai import *
 from fastai.vision import *
 import matplotlib.pyplot as plt
-# import base64
+import base64
 from io import BytesIO
 from starlette.applications import Starlette
 from starlette.middleware.cors import CORSMiddleware
