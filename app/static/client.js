@@ -31,7 +31,7 @@ function analyze() {
       var response = JSON.parse(e.target.responseText);
       el("result-label").innerHTML = `This is most likely ${response["result"]}`;
 //       el("plot-label").innerHTML = `<img src=\'data:image/png;base64,{}\'>.format(${response["plot"]})`;
-      el("plot-label").innerHTML = `<img src=${response["plot"]}`;
+      el("plot-label").innerHTML = `<img src=${response["plot"]}>`;
     }
     el("analyze-button").innerHTML = "Analyze";
   };
