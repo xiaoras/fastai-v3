@@ -5,3 +5,5 @@ Superhero image classifier, based on ResNet34 architecture. Currently supports B
 The web application is currently available [here](https://superheroes.onrender.com).
 
 Original [fastai repo](https://github.com/render-examples/fastai-v3).
+
+The notebook containing the code used to train the model can be found [here](https://github.com/xiaoras/superheroes-notebook).
